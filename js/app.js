@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
     var flickr = new Flickr({
-        api_key: "5d961961315fc52a4fda50571e89ed99"
+        api_key: "5d961961315fc52a4fda50571e89ed99",
+        secret:"2789740b044d9fce"
     });
 
     function scrollToAnchor(href) {
@@ -139,7 +140,7 @@ $(document).ready(function() {
                 for (var i = 0; i < photos.length; i++) {
                     thumbnail[i] = "http://farm" + photos[i].farm + ".static.flickr.com/" + photos[i].server + "/" + photos[i].id + "_" + photos[i].secret + "_m.jpg";
                     URL[i] = "http://www.flickr.com/photos/" + photos[i].owner + "/" + photos[i].id;
-                    ownerpage[i] = "http://www.flickr.com/photos/" + photos[i].owner + "/";
+                    ownerpage[i] = "http://www.flickr.com/people/" + photos[i].owner + "/";
                 }
                 callback(thumbnail, URL, photos);
             }
@@ -203,6 +204,7 @@ $(document).ready(function() {
 
         thumbnail.splice(0, 10);
         URL.splice(0, 10);
+        ownerpage.splice(0,10);
 
         $("#morebuttondiv").show();
 
