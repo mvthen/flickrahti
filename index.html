@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Flickrahti</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header container">
+                <a class="navbar-brand" href="#">
+                    <div class="navbar-header-icon">
+                        <img src="img/logo_copy.png" height="30px" width="30px">
+                    </div>
+                    <div class="navbar-header-icon" id="flickrati">FLICKRAHTI</div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right" id="start_over">
+                            <li>
+                                <a href="#">START OVER!</a>
+                            </li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <!-- <div class="container"> -->
+    <div class="searchheader">
+        <div class="searchheaderoverlay">
+            <div class="container" id="search_form">
+                <div class="col-md-6 col-md-offset-3">
+                    <h3>Welcome to <span style="color:#df691a; font-weight:bold">FLICKRAHTI</span>, <br> a Flickr search application.</h3>    
+                    <h4>Search with one or more of the filters below!</h4>
+                    <div class="input-group-btn input-group-select">
+                        <form id="search_queries">
+                            <input id="query" type="text" class="form-control" placeholder="query (ex. cats, nature, random)">
+                            <input id="username" type="text" class="form-control" placeholder="username (ex. kylerush, bobby)">
+                            <div class="calendar col-md-12 no-padding">
+                                <div class="input-group date form_date col-md-6 no-padding" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                    <input class="form-control" id="mindate" size="16" type="text" value="" readonly placeholder="min upload date">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                </div>
+
+                                <div class="input-group date form_date col-md-6 no-padding" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                    <!-- <div class="col-md-6 input-group form_date no-padding"> -->
+                                    <input class="form-control" id="maxdate" size="16" type="text" value="" readonly placeholder="max upload date">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                </div>
+                            </div>
+                        </form>
+                        <a class="btn btn-info btn-md col-xs-12" id="searchbutton" href="#results">Search!</a>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="errorMsg">
+                    </div>
+                </div>
+            </div>
+
+            <div class="image_slide">
+                <a name="results"></a>
+                <div class="image_header">
+                    <h1>IMAGES</h1> 
+                    <hr class="shorter_hr">
+                    <br>
+                </div>
+                <div id="flickr-images" align="center">
+                </div>
+                <div id="morebuttondiv">
+                    <a class="button btn btn-info btn-mid" id="morebutton" align="center" href="#end">More Images!</a>
+                </div>
+                <div class="wrapper"></div> 
+                <a name="end"></a>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="col-lg-4">
+                    </div>
+                    <div class="col-lg-12">
+                        <a href="mailto:mt2837@columbia.edu" style="color:#ebebeb;"><span style="float: left; font-size:30px; margin-right:10px;" class="fa fa-envelope-square"></span></a>
+                        <a href="http://www.linkedin.com/in/mvthen/" style="color:#ebebeb;" target="_blank"><span style="float: left; font-size:30px; margin-right:10px;" class="fa fa-linkedin-square"></span></a>
+                        <a href="http://www.github.com/mvthen" style="color:#ebebeb;" target="_blank"><span style="float: left; font-size:30px" class="fa fa-github-square"></span></a>
+
+                        <div style="margin-right:100px;">
+                            <p>Made with two teaspons of inspiration and a touch of love.
+                                <br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.js"></script>
+    <script src "js/bootstrap-datetimepicker.min.js"></script>
+    <script src="node_modules/flickrapi/browser/flickrapi.dev.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
