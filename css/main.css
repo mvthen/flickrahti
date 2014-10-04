@@ -115,8 +115,8 @@ html, body {
 }
 
 #images {
-    width: 210px;
-    height: 150px;
+    width: 200px;
+    height: 140px;
     border: 1px solid #ebebeb;
 }
 
@@ -130,9 +130,9 @@ html, body {
 #thumb {
     font-size: 25px; 
     position:absolute;
-    left: 180px; 
+    left: 187px; 
     right: 0px; 
-    top: 43px; 
+    top: 50px; 
     bottom: 0px;
     width:27px;
     height:29px;
