@@ -24,11 +24,11 @@ $(document).ready(function() {
         startView: 2,
         minView: 2,
         forceParse: 0,
-        endDate: "+0d",
+        endDate: "-1d",
         startDate: "2004-01-01"
     });
 
-    $("#searchbutton").click(function() {
+    $("#searchbutton").click(function(event) {
         event.preventDefault();
         thumbnail = [];
         URL = [];
@@ -60,6 +60,7 @@ $(document).ready(function() {
         var maxdate = document.getElementById("maxdate").value;
         var min_upload_date;
         var max_upload_date;
+
         if (mindate != "") {
             min_upload_date = new Date(mindate).getTime() / 1000;
         } else {
@@ -70,18 +71,13 @@ $(document).ready(function() {
         } else {
             max_upload_date = maxdate;
         }
-        
         search_array[2] = min_upload_date;
         search_array[3] = max_upload_date;
-        console.log(min_upload_date);
-        console.log(search_array);
         return search_array;
     }
 
     function getNSID(search_items, callback) {   
-        console.log(search_items); 
         var username = document.getElementById("username").value;  
-        console.log(username);
         flickr.people.findByUsername({
             username: username
         }      , function(err, user) {    
@@ -93,7 +89,6 @@ $(document).ready(function() {
                 document.getElementById("search_queries").reset();  
                 return; 
             }
-            console.log(user.user.id);
             search_items["user_id"] = user.user.id;
             searchFlickr(callback, search_items);
         });
@@ -101,7 +96,6 @@ $(document).ready(function() {
 
     function getFlickrPhotos(callback, search_array) {
         var search_items = {};
-        console.log(search_array);
         search_items["text"] = search_array[0];
         search_items["min_upload_date"] = search_array[2];
         search_items["max_upload_date"] = search_array[3];
@@ -110,11 +104,12 @@ $(document).ready(function() {
             getNSID(search_items, callback);
         } else {
             if (search_items["text"] == "" && search_items["min_upload_date"] == "" && search_items["max_upload_date"] == "") {
-                $("<br><br><br><br>Please enter one or more of the fields.<br><br>").appendTo(".errorMsg");
+                var a_href = $("<a/>").attr("href", "#alert").attr("class", "close").attr("data-dismiss","alert").html("Please enter one or more fields.");
+                var error = $("<div/>").attr("class", "alert alert-error").attr("id", "alert").html(a_href);
+                $(error).appendTo(".errorMsg");
             }
             searchFlickr(callback, search_items);
         }
-        console.log(search_items);
     }
 
     var thumbnail = [];
@@ -122,16 +117,15 @@ $(document).ready(function() {
     var ownerpage = [];
 
     function searchFlickr(callback, search_items) {
-        console.log(search_items);
         flickr.photos.search(search_items, function(err, result) {
             if (err) {
                 throw new Error(err);
             } else {
                 var photos = result.photos.photo;
-                console.log(photos.length);
                 if (photos.length == 0) {
                     var a_href = $("<a/>").attr("href", "#alert").attr("class", "close").attr("data-dismiss","alert").html("No photos found. Please try again!");
 	         		var error = $("<div/>").attr("class", "alert alert-error").attr("id", "alert").html(a_href);
+                    $(".image_slide").hide();
 	            	$(error).appendTo(".errorMsg");
                     document.getElementById("search_queries").reset();
                     return;
